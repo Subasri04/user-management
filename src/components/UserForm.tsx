@@ -106,7 +106,7 @@ export function UserForm({ initialValues, onSubmit }: Props) {
 
         return (
           <div key={field.name} className='m-b-10'>
-            <label>
+            <label className='form-label'>
               {field.required && <span className='required'>* </span>}
               {field.label}
             </label>

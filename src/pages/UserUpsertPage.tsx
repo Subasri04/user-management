@@ -58,14 +58,14 @@ const UserUpsertPage = () => {
 
   if (loading) {
     return (
-      <div className='h-100 d-flex justify-content-center align-items-center'>
+      <div className='container h-100 d-flex justify-content-center align-items-center'>
         <Spin tip="Loading..." />
       </div>
     )
   }
 
   return (
-    <div className='upsert-user-container h-100'>
+    <div className='container upsert-user-container h-100'>
       <Card>
         <UserForm
           initialValues={initialValues}

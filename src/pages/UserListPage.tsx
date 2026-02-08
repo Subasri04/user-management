@@ -89,7 +89,7 @@ const UserListPage = () => {
 
     if (loading) {
         return (
-            <div className='h-100 text-center d-flex justify-content-center align-items-center'>
+            <div className='container h-100 text-center d-flex justify-content-center align-items-center'>
                 <Spin tip="Loading" />
             </div>
         )
