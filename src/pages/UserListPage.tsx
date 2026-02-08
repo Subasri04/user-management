@@ -69,8 +69,8 @@ const UserListPage = () => {
             key: 'actions',
             render: (_: unknown, record: User) => (
                 <Space size="middle">
-                    <EditOutlined
-                        style={{ color: '#1677ff', cursor: 'pointer' }}
+                    <EditOutlined className='cursor-pointer edit-icon'
+                        onClick={() => navigate(`/users/edit/${record.id}`)}
                     />
 
                     <Popconfirm
@@ -80,9 +80,7 @@ const UserListPage = () => {
                         okText="Yes"
                         cancelText="No"
                     >
-                        <DeleteOutlined
-                            style={{ color: '#ff4d4f', cursor: 'pointer' }}
-                        />
+                        <DeleteOutlined className='cursor-pointer delete-icon'/>
                     </Popconfirm>
                 </Space>
             ),

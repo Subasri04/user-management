@@ -4,20 +4,19 @@ import { Layout } from 'antd';
 import AppHeader from './components/Header';
 import './styles/index.scss'
 import NotFoundPage from './pages/NotFoundPage';
-
-const { Content } = Layout;
+import UserUpsertPage from './pages/UserUpsertPage';
 
 const App = () => {
   return (
-    <Layout className='h-100'>
+    <Layout>
       <AppHeader />
 
-      <Content>
-        <Routes>
-          <Route path='/' element={<UserListPage />} />
-          <Route path='*' element={<NotFoundPage />} />
-        </Routes>
-      </Content>
+      <Routes>
+        <Route path='/' element={<UserListPage />} />
+        <Route path='/users/create' element={<UserUpsertPage />} />
+        <Route path='/users/edit/:id' element={<UserUpsertPage />} />
+        <Route path='*' element={<NotFoundPage />} />
+      </Routes>
     </Layout>
   )
 }

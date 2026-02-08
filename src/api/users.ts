@@ -1,26 +1,25 @@
 import { api } from './axios';
-import type { User } from '../types/user';
 
-export const getUsers = async (): Promise<User[]> => {
-    const response = await api.get<User[]>('/users');
+export const getUsers = async () => {
+    const response = await api.get('/users');
     return response?.data;
 };
 
-export const getUserById = async (id: number): Promise<User> => {
-    const response = await api.get<User>(`/users/${id}`);
+export const getUserById = async (id: number) => {
+    const response = await api.get(`/users/${id}`);
     return response?.data;
 }
 
-export const createUser = async (user: User): Promise<User> => {
-    const response = await api.post<User>('/users', user);
+export const createUser = async (payload: Record<string, unknown>) => {
+    const response = await api.post('/users', payload);
     return response?.data;
 }
 
-export const updateUser = async (id: number, user: Partial<User>): Promise<User> => {
-    const response = await api.patch<User>(`/users/${id}`, user);
+export const updateUser = async (id: number, payload: Record<string, unknown>) => {
+    const response = await api.patch(`/users/${id}`, payload);
     return response?.data;
 }
 
-export const deleteUser = async (id: number): Promise<void> => {
+export const deleteUser = async (id: number) => {
     await api.delete(`/users/${id}`);
 }

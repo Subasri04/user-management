@@ -5,7 +5,6 @@ import { Card, message, Spin } from 'antd'
 import { createUser, getUserById, updateUser } from '../api/users'
 import { UserForm } from '../components/UserForm'
 import type { User } from '../types/user'
-import type { UserFormValues } from '../config/user/validationSchema'
 
 import '../styles/upsert-user.scss';
 
@@ -42,7 +41,7 @@ const UserUpsertPage = () => {
     fetchUser()
   }, [id, isEditMode, navigate])
 
-  const handleSubmit = async (values: UserFormValues) => {
+  const handleSubmit = async (values: Record<string, unknown>) => {
     try {
       if (isEditMode) {
         await updateUser(Number(id), values)
@@ -67,7 +66,7 @@ const UserUpsertPage = () => {
 
   return (
     <div className='upsert-user-container h-100'>
-      <Card >
+      <Card>
         <UserForm
           initialValues={initialValues}
           onSubmit={handleSubmit}

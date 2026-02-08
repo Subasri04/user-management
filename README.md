@@ -1,73 +1,88 @@
-# React + TypeScript + Vite
+# User Management Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple React-based CRUD (Create, Read, Update, Delete) web application to manage user data.
 
-Currently, two official plugins are available:
+The application is designed with future extensibility in mind, allowing new fields to be added with minimal code changes.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React + TypeScript
+- Vite
+- Ant Design
+- React Hook Form
+- Zod
+- JSON-server (mock API)
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Create a new user
+- List all users
+- Edit existing user information
+- Delete a user
+- Form validation with clear error messages
+- Loading and success/error notifications
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Setup Instructions
+
+### 1. Clone the repository
+
+```bash
+git clone <repository-url>
+cd <project-folder>
+
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Install dependencies
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+### 3. Mock API Setup (JSON-server)
+
+Since no backend API was provided, JSON-server is used for mock testing.
+```bash
+Run the server
+npm run server
+```
+
+### 4. API Endpoint
+```bash
+http://localhost:3000/users
+
+```
+
+### 5. Running the Application
+
+Start the frontend application:
+```bash
+
+npm run dev
+```
+
+Application runs at:
+
+http://localhost:5173
+
+### 6. Extensibility
+
+The application follows a configuration-driven architecture.
+
+Add a new field definition in:
+```js
+src/config/user/formSchema.ts
+
+Example:
+{ name: 'address', label: 'Address', type: 'textarea', required: false }
+```
+- No other changes are required.
+- The form UI is rendered dynamically from the configuration.
+- Validation rules are generated automatically based on field type.
+- API payload handling remains unchanged.
+- This approach ensures minimal code changes when requirements evolve.

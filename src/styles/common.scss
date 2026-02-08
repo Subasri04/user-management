@@ -6,6 +6,14 @@
     height: 100%;
 }
 
+.w-100 {
+    width: 100%;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
 .d-flex {
     display: flex;
 }
@@ -39,4 +47,12 @@
     padding: 25px;
     position: relative;
     overflow: auto;
+}
+
+.edit-icon {
+    color: #1677ff;
+}
+
+.delete-icon {
+    color: #ff4d4f;
 }
