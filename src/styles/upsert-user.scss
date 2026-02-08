@@ -1,0 +1,18 @@
+@use './variable.scss' as var;
+
+.upsert-user-container {
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 20px;
+}
+
+.error-message {
+    color: #ff4d4f;
+    font-size: small;
+    margin-top: 4px;
+}
+
+.required {
+    color: #ff4d4f;
+    margin-right: 4px;
+}
